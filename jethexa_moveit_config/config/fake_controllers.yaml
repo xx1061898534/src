@@ -1,0 +1,12 @@
+controller_list:
+  - name: fake_body_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - coxa_joint_LF
+      - femur_joint_LF
+      - tibia_joint_LF
+initial:  # Define initial robot poses.
+#  - group: body
+#    pose: home
+
+  []

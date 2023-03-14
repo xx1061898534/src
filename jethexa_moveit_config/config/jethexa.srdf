@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="jethexa">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="body">
+        <chain base_link="base_link" tip_link="tibia_LF" />
+    </group>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="v_Joint" type="fixed" parent_frame="w_joint" child_link="base_link" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="body_link" link2="coxa_LF" reason="Adjacent" />
+    <disable_collisions link1="body_link" link2="coxa_LM" reason="Adjacent" />
+    <disable_collisions link1="body_link" link2="coxa_LR" reason="Adjacent" />
+    <disable_collisions link1="body_link" link2="coxa_RF" reason="Adjacent" />
+    <disable_collisions link1="body_link" link2="coxa_RM" reason="Adjacent" />
+    <disable_collisions link1="body_link" link2="coxa_RR" reason="Adjacent" />
+    <disable_collisions link1="body_link" link2="depth_camera_link" reason="Adjacent" />
+    <disable_collisions link1="body_link" link2="lidar_visual_link" reason="Adjacent" />
+    <disable_collisions link1="coxa_LF" link2="coxa_LR" reason="Never" />
+    <disable_collisions link1="coxa_LF" link2="coxa_RM" reason="Never" />
+    <disable_collisions link1="coxa_LF" link2="coxa_RR" reason="Never" />
+    <disable_collisions link1="coxa_LF" link2="depth_camera_link" reason="Never" />
+    <disable_collisions link1="coxa_LF" link2="femur_LF" reason="Adjacent" />
+    <disable_collisions link1="coxa_LF" link2="femur_LR" reason="Never" />
+    <disable_collisions link1="coxa_LF" link2="femur_RR" reason="Never" />
+    <disable_collisions link1="coxa_LF" link2="lidar_visual_link" reason="Never" />
+    <disable_collisions link1="coxa_LM" link2="coxa_RF" reason="Never" />
+    <disable_collisions link1="coxa_LM" link2="coxa_RM" reason="Never" />
+    <disable_collisions link1="coxa_LM" link2="coxa_RR" reason="Never" />
+    <disable_collisions link1="coxa_LM" link2="depth_camera_link" reason="Never" />
+    <disable_collisions link1="coxa_LM" link2="femur_LM" reason="Adjacent" />
+    <disable_collisions link1="coxa_LM" link2="lidar_visual_link" reason="Never" />
+    <disable_collisions link1="coxa_LR" link2="coxa_RF" reason="Never" />
+    <disable_collisions link1="coxa_LR" link2="coxa_RM" reason="Never" />
+    <disable_collisions link1="coxa_LR" link2="depth_camera_link" reason="Never" />
+    <disable_collisions link1="coxa_LR" link2="femur_LR" reason="Adjacent" />
+    <disable_collisions link1="coxa_LR" link2="femur_RF" reason="Never" />
+    <disable_collisions link1="coxa_LR" link2="lidar_visual_link" reason="Never" />
+    <disable_collisions link1="coxa_RF" link2="coxa_RR" reason="Never" />
+    <disable_collisions link1="coxa_RF" link2="depth_camera_link" reason="Never" />
+    <disable_collisions link1="coxa_RF" link2="femur_LR" reason="Never" />
+    <disable_collisions link1="coxa_RF" link2="femur_RF" reason="Adjacent" />
+    <disable_collisions link1="coxa_RF" link2="lidar_visual_link" reason="Never" />
+    <disable_collisions link1="coxa_RM" link2="depth_camera_link" reason="Never" />
+    <disable_collisions link1="coxa_RM" link2="femur_RM" reason="Adjacent" />
+    <disable_collisions link1="coxa_RM" link2="lidar_visual_link" reason="Never" />
+    <disable_collisions link1="coxa_RR" link2="depth_camera_link" reason="Never" />
+    <disable_collisions link1="coxa_RR" link2="femur_LF" reason="Never" />
+    <disable_collisions link1="coxa_RR" link2="femur_RR" reason="Adjacent" />
+    <disable_collisions link1="coxa_RR" link2="lidar_visual_link" reason="Never" />
+    <disable_collisions link1="depth_camera_link" link2="femur_LR" reason="Never" />
+    <disable_collisions link1="depth_camera_link" link2="femur_RR" reason="Never" />
+    <disable_collisions link1="depth_camera_link" link2="lidar_visual_link" reason="Never" />
+    <disable_collisions link1="femur_LF" link2="tibia_LF" reason="Adjacent" />
+    <disable_collisions link1="femur_LM" link2="tibia_LM" reason="Adjacent" />
+    <disable_collisions link1="femur_LR" link2="tibia_LR" reason="Adjacent" />
+    <disable_collisions link1="femur_RF" link2="tibia_RF" reason="Adjacent" />
+    <disable_collisions link1="femur_RM" link2="tibia_RM" reason="Adjacent" />
+    <disable_collisions link1="femur_RR" link2="tibia_RR" reason="Adjacent" />
+</robot>
