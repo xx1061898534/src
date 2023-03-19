@@ -16,3 +16,6 @@
 
 ![image](picture/sm_in_gazebo.png)  
 
+
+4.rosrun jethexa_planning simple_control_04_forward_and_rotate.py
+
