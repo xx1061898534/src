@@ -24,15 +24,15 @@ def Traveling_Publisher():
     #rate = rospy.Rate(10)
     ##while not rospy.is_shutdown():
     msg= jetmsg.Traveling()
-    msg.gait=1;
-    msg.stride=40.0;
-    msg.height=15.0;
-    msg.direction=0;
-    msg.rotation=0.0;
-    msg.time=1;
-    msg.steps=30;
-    msg.relative_height=False;
-    msg.interrupt=False;
+    msg.gait=1
+    msg.stride=40.0
+    msg.height=15.0
+    msg.direction=0
+    msg.rotation=0.0
+    msg.time=1
+    msg.steps=30
+    msg.relative_height=False
+    msg.interrupt=False
     rospy.sleep(1)
     pub.publish(msg)
 
@@ -51,10 +51,11 @@ def cmd_vel_Publisher(linear_x,angular_z):
 
 if __name__=="__main__":
   #try:
-       cmd_vel_Publisher(0.03,0.00)
-       rospy.sleep(5)
-       cmd_vel_Publisher(0.00,0.3)
-       rospy.spin()
+       Traveling_Publisher()
+       #cmd_vel_Publisher(0.03,0.00)
+       #rospy.sleep(5)
+       #cmd_vel_Publisher(0.00,0.3)
+       #rospy.spin()
   #except rospy.ROSInterruptException:
        #pass
 
